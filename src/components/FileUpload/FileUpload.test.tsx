@@ -29,8 +29,8 @@ describe('FileUpload', () => {
 
   it('disables both buttons while loading', () => {
     render(<FileUpload onFileSelected={vi.fn()} onLoadSample={vi.fn()} isLoading error={null} />);
-    expect(screen.getByText('Upload CSV or JSON').closest('button')).toBeDisabled();
-    expect(screen.getByText('Load sample data').closest('button')).toBeDisabled();
+    expect((screen.getByText('Upload CSV or JSON').closest('ion-button') as any).disabled).toBe(true);
+    expect((screen.getByText('Load sample data').closest('ion-button') as any).disabled).toBe(true);
   });
 
   it('renders an error message when provided', () => {
