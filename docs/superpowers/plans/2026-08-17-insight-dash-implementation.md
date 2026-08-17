@@ -1036,8 +1036,7 @@ git commit -m "Add useFilter hook for case-insensitive row filtering"
 Create `src/hooks/useDataset.test.ts`:
 
 ```ts
-import { renderHook, waitFor } from '@testing-library/react';
-import { act } from 'react';
+import { act, renderHook, waitFor } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { useDataset } from './useDataset';
 
