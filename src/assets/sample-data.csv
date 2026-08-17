@@ -1,0 +1,11 @@
+month,region,units_sold,revenue
+January,North,120,3600
+January,South,95,2850
+February,North,140,4200
+February,South,110,3300
+March,North,160,4800
+March,South,130,3900
+April,North,175,5250
+April,South,150,4500
+May,North,190,5700
+May,South,165,4950
