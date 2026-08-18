@@ -89,6 +89,10 @@ The Android Gradle build requires **JDK 21** (not just any JDK on your
 JAVA_HOME=/path/to/jdk-21 ./gradlew assembleDebug
 ```
 
+A pre-built debug APK is also attached to the
+[latest GitHub Release](../../releases/latest), if you'd rather install it
+on a device than build it yourself.
+
 ## Using the "Ask about your data" panel
 
 This feature calls the Claude API directly from the browser, so it needs
