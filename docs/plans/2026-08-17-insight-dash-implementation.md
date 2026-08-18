@@ -1,20 +1,18 @@
 # Insight Dash Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
-
 **Goal:** Build Insight Dash, a client-side Ionic + React + TypeScript + Capacitor data dashboard: upload CSV/JSON, view a sortable/filterable table, chart a numeric column, and optionally ask Claude a question about the dataset.
 
 **Architecture:** A single-route Ionic app. `useDataset` owns the loaded `Dataset` and is the only source of truth; `DataTable` composes `useSort` + `useFilter` internally; `ChartPanel` and `AskAboutData` both read the same `Dataset` directly. Parsing (CSV via `papaparse`, JSON via native `JSON.parse`) produces a common `RawTable` shape that `buildDataset` turns into typed `Dataset` rows.
 
 **Tech Stack:** Vite, React, TypeScript, `@ionic/react` + `@ionic/react-router`, `ionicons`, `react-router-dom`, `papaparse`, `recharts`, `@capacitor/core` + `@capacitor/android`, Vitest + React Testing Library.
 
-**Spec:** `docs/superpowers/specs/2026-08-17-insight-dash-design.md`
+**Spec:** `docs/specs/2026-08-17-insight-dash-design.md`
 
 ## Global Constraints
 
 - No backend of any kind — all parsing/computation is client-side; the only network call is the optional direct-from-browser Claude API request.
 - No persistence — no localStorage/IndexedDB anywhere, and the Claude API key must never be written to storage, only held in component state for the session.
-- No mention of any company, role, or interview anywhere in code, comments, README, commit messages, or file names.
+- No company- or employer-specific references anywhere in code, comments, README, commit messages, or file names — this stays a standalone, reusable sample project.
 - CSV parsing uses `papaparse`, not a hand-rolled splitter.
 - Chart uses `recharts`.
 - The bundled sample dataset lives at `src/assets/sample-data.csv` and is imported with Vite's `?raw` suffix (not fetched from `public/`), so it works identically in tests, web, and the Capacitor build with no network/mocking needed.
@@ -2167,9 +2165,4 @@ git commit -m "Add README with setup, testing, Android build, and AI-assisted wo
 
 ## Execution Handoff
 
-Plan complete and saved to `docs/superpowers/plans/2026-08-17-insight-dash-implementation.md`. Two execution options:
-
-1. **Subagent-Driven (recommended)** — I dispatch a fresh subagent per task, review between tasks, fast iteration.
-2. **Inline Execution** — Execute tasks in this session using executing-plans, batch execution with checkpoints.
-
-Which approach?
+Plan complete and saved to `docs/plans/2026-08-17-insight-dash-implementation.md`. Each task below was implemented one at a time — write the failing test, implement, watch it pass, review, commit — before moving to the next.

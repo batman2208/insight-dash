@@ -15,6 +15,22 @@ client-side — there is no backend.
   runtime and ask a question about the loaded dataset. The key is kept only
   in memory for the session; it is never stored or hardcoded.
 
+## Screenshots
+
+|                                    |                                    |
+| ---------------------------------- | ---------------------------------- |
+| ![Empty state](docs/screenshots/web-empty-state.png) | ![Data table, sorted and filtered](docs/screenshots/web-data-table.png) |
+| Upload / empty state | Data table — sorted and filtered |
+| ![Chart view](docs/screenshots/web-chart.png) | ![Ask about your data panel](docs/screenshots/web-ask-ai.png) |
+| Chart | Ask about your data — sample Q&A |
+
+On Android (Capacitor debug build):
+
+|                                    |                                    |
+| ---------------------------------- | ---------------------------------- |
+| ![Mobile empty state](docs/screenshots/mobile-empty-state.png) | ![Mobile data table](docs/screenshots/mobile-data-table.png) |
+| Empty state | Data table (sticky first column while scrolling) |
+
 ## Tech stack
 
 - [Vite](https://vitejs.dev/) + React + TypeScript
@@ -63,6 +79,14 @@ Then either:
 - Run `cd android && ./gradlew assembleDebug` and find the APK under
   `android/app/build/outputs/apk/debug/`.
 
+The Android Gradle build requires **JDK 21** (not just any JDK on your
+`PATH`) — if `./gradlew` fails with `invalid source release: 21`, point
+`JAVA_HOME` at a JDK 21 install for that command, e.g.:
+
+```bash
+JAVA_HOME=/path/to/jdk-21 ./gradlew assembleDebug
+```
+
 ## Using the "Ask about your data" panel
 
 This feature calls the Claude API directly from the browser, so it needs
@@ -90,3 +114,7 @@ generation, boilerplate — are treated the same way any other tool output
 would be: read, checked, and adjusted before being committed, with the
 deterministic pieces (parsing correctness, type safety, test coverage)
 held to the same bar as if written by hand.
+
+The original design spec and task-by-task implementation plan are kept in
+[`docs/specs/`](docs/specs/) and [`docs/plans/`](docs/plans/) for anyone who
+wants to see the process behind the commit history.

@@ -159,8 +159,9 @@ isolation.
   Android debug-APK steps, and a short, honest note on the AI-assisted
   development approach used to build the project (process-level — TDD,
   planning/spec-first workflow — not tool-branding).
-- No mention of any company, role, or interview anywhere in code, comments,
-  README, commit messages, or file names.
+- No company- or employer-specific references anywhere in code, comments,
+  README, commit messages, or file names — this stays a standalone,
+  reusable sample project.
 
 ## Open risks / things to watch during implementation
 

@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Env files — the Claude API key is entered at runtime in the app only,
+# never stored in a file, but ignore these anyway as a safeguard.
+.env
+.env.*
+!.env.example
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
