@@ -1,0 +1,20 @@
+.data-table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--ion-color-step-150, #d9d9d9);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.data-table thead {
+  background: var(--ion-color-step-50, #f2f2f2);
+}

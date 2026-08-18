@@ -29,7 +29,7 @@ export function ChartPanel({ dataset }: ChartPanelProps) {
     return <p>No numeric columns available to chart.</p>;
   }
 
-  const activeColumn = column ?? numericKeys[0];
+  const activeColumn = column && numericKeys.includes(column) ? column : numericKeys[0];
   const data = dataset.rows.map((row, index) => ({
     index: index + 1,
     value: row[activeColumn] as number,

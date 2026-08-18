@@ -3,6 +3,7 @@ import { caretDown, caretUp, swapVertical } from 'ionicons/icons';
 import { useFilter } from '../../hooks/useFilter';
 import { useSort } from '../../hooks/useSort';
 import type { ColumnDef, Row } from '../../types/dataset';
+import './DataTable.css';
 
 export interface DataTableProps {
   columns: ColumnDef[];
@@ -25,27 +26,29 @@ export function DataTable({ columns, rows }: DataTableProps) {
         onIonInput={(e) => setFilterText(e.detail.value ?? '')}
         placeholder="Filter rows"
       />
-      <table>
-        <thead>
-          <tr>
-            {columns.map((column) => (
-              <th key={column.key} onClick={() => toggleSort(column.key)} style={{ cursor: 'pointer' }}>
-                {column.label}
-                <IonIcon icon={sortIcon(column.key)} />
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {sortedRows.map((row, index) => (
-            <tr key={index}>
+      <div className="data-table-wrapper">
+        <table className="data-table">
+          <thead>
+            <tr>
               {columns.map((column) => (
-                <td key={column.key}>{row[column.key]}</td>
+                <th key={column.key} onClick={() => toggleSort(column.key)} style={{ cursor: 'pointer' }}>
+                  {column.label}
+                  <IonIcon icon={sortIcon(column.key)} />
+                </th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {sortedRows.map((row, index) => (
+              <tr key={index}>
+                {columns.map((column) => (
+                  <td key={column.key}>{row[column.key]}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       {sortedRows.length === 0 && <p>No rows match your filter.</p>}
     </div>
   );
