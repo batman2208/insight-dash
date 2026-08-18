@@ -28,8 +28,10 @@ On Android (Capacitor debug build):
 
 |                                    |                                    |
 | ---------------------------------- | ---------------------------------- |
-| ![Mobile empty state](docs/screenshots/mobile-empty-state.png) | ![Mobile data table](docs/screenshots/mobile-data-table.png) |
-| Empty state | Data table (sticky first column while scrolling) |
+| ![Mobile empty state](docs/screenshots/mobile-empty-state.png) | ![Mobile data table, sorted](docs/screenshots/mobile-data-table.png) |
+| Empty state | Data table, sorted |
+| ![Mobile bar chart](docs/screenshots/mobile-chart-bar.png) | ![Mobile line chart](docs/screenshots/mobile-chart-line.png) |
+| Chart — bar, with tooltip | Chart — line, with tooltip |
 
 ## Tech stack
 
