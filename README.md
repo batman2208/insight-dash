@@ -19,10 +19,10 @@ client-side — there is no backend.
 
 |                                    |                                    |
 | ---------------------------------- | ---------------------------------- |
-| ![Empty state](docs/screenshots/web-empty-state.png) | ![Data table, sorted and filtered](docs/screenshots/web-data-table.png) |
-| Upload / empty state | Data table — sorted and filtered |
-| ![Chart view](docs/screenshots/web-chart.png) | ![Ask about your data panel](docs/screenshots/web-ask-ai.png) |
-| Chart | Ask about your data — sample Q&A |
+| ![Empty state](docs/screenshots/web-empty-state.png) | ![Data table, sorted](docs/screenshots/web-data-table.png) |
+| Upload / empty state | Data table, sorted |
+| ![Bar chart](docs/screenshots/web-chart-bar.png) | ![Line chart](docs/screenshots/web-chart-line.png) |
+| Chart — bar, with tooltip | Chart — line, with tooltip |
 
 On Android (Capacitor debug build):
 
