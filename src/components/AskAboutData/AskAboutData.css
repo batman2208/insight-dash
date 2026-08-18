@@ -1,0 +1,54 @@
+.ask-about-data {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ask-about-data-hint {
+  margin: 0 0 4px;
+  font-size: 0.82rem;
+  color: var(--app-text-muted);
+}
+
+.ask-about-data-field {
+  --background: var(--ion-color-step-50);
+  --border-radius: 8px;
+  --padding-start: 12px;
+  --inner-padding-end: 12px;
+  border: 1px solid var(--app-border-color);
+  border-radius: 8px;
+  margin-bottom: 2px;
+}
+
+.ask-about-data-submit {
+  align-self: flex-start;
+}
+
+.ask-about-data-error {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.ask-about-data-answer {
+  background: var(--ion-color-step-50);
+  border: 1px solid var(--app-border-color);
+  border-left: 3px solid var(--ion-color-primary);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.ask-about-data-answer-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ion-color-primary);
+  margin-bottom: 4px;
+}
+
+.ask-about-data-answer p {
+  margin: 0;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}

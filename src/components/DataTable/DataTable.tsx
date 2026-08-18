@@ -20,20 +20,30 @@ export function DataTable({ columns, rows }: DataTableProps) {
   };
 
   return (
-    <div>
+    <div className="data-table-container">
       <IonSearchbar
         value={filterText}
         onIonInput={(e) => setFilterText(e.detail.value ?? '')}
         placeholder="Filter rows"
+        className="data-table-search"
       />
       <div className="data-table-wrapper">
         <table className="data-table">
           <thead>
             <tr>
               {columns.map((column) => (
-                <th key={column.key} onClick={() => toggleSort(column.key)} style={{ cursor: 'pointer' }}>
-                  {column.label}
-                  <IonIcon icon={sortIcon(column.key)} />
+                <th
+                  key={column.key}
+                  onClick={() => toggleSort(column.key)}
+                  className={column.type === 'number' ? 'is-numeric' : undefined}
+                >
+                  <span className="data-table-th-label">
+                    {column.label}
+                    <IonIcon
+                      icon={sortIcon(column.key)}
+                      className={sortColumn === column.key ? 'sort-icon is-active' : 'sort-icon'}
+                    />
+                  </span>
                 </th>
               ))}
             </tr>
@@ -42,14 +52,16 @@ export function DataTable({ columns, rows }: DataTableProps) {
             {sortedRows.map((row, index) => (
               <tr key={index}>
                 {columns.map((column) => (
-                  <td key={column.key}>{row[column.key]}</td>
+                  <td key={column.key} className={column.type === 'number' ? 'is-numeric' : undefined}>
+                    {row[column.key]}
+                  </td>
                 ))}
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      {sortedRows.length === 0 && <p>No rows match your filter.</p>}
+      {sortedRows.length === 0 && <p className="data-table-empty">No rows match your filter.</p>}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useRef, type ChangeEvent } from 'react';
 import { IonButton, IonIcon, IonSpinner, IonText } from '@ionic/react';
 import { cloudUploadOutline, documentTextOutline } from 'ionicons/icons';
+import './FileUpload.css';
 
 export interface FileUploadProps {
   onFileSelected: (file: File) => void;
@@ -19,7 +20,7 @@ export function FileUpload({ onFileSelected, onLoadSample, isLoading, error }: F
   };
 
   return (
-    <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+    <div className="file-upload">
       <input
         ref={inputRef}
         type="file"
@@ -28,17 +29,19 @@ export function FileUpload({ onFileSelected, onLoadSample, isLoading, error }: F
         style={{ display: 'none' }}
         data-testid="file-upload-input"
       />
-      <IonButton onClick={() => inputRef.current?.click()} disabled={isLoading}>
-        <IonIcon slot="start" icon={cloudUploadOutline} />
-        Upload CSV or JSON
-      </IonButton>
-      <IonButton fill="outline" onClick={onLoadSample} disabled={isLoading}>
-        <IonIcon slot="start" icon={documentTextOutline} />
-        Load sample data
-      </IonButton>
-      {isLoading && <IonSpinner name="dots" />}
+      <div className="file-upload-actions">
+        <IonButton onClick={() => inputRef.current?.click()} disabled={isLoading}>
+          <IonIcon slot="start" icon={cloudUploadOutline} />
+          Upload CSV or JSON
+        </IonButton>
+        <IonButton fill="outline" onClick={onLoadSample} disabled={isLoading}>
+          <IonIcon slot="start" icon={documentTextOutline} />
+          Load sample data
+        </IonButton>
+        {isLoading && <IonSpinner name="dots" />}
+      </div>
       {error && (
-        <IonText color="danger">
+        <IonText color="danger" className="file-upload-error">
           <p>{error}</p>
         </IonText>
       )}

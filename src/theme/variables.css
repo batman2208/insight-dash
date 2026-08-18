@@ -1,0 +1,64 @@
+/* Insight Dash design tokens — brand color, neutrals, spacing, and shared component resets. */
+
+:root {
+  /* Brand accent (replaces Ionic's default blue) */
+  --ion-color-primary: #4f46e5;
+  --ion-color-primary-rgb: 79, 70, 229;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #463dca;
+  --ion-color-primary-tint: #6158e8;
+
+  --ion-color-danger: #dc2626;
+  --ion-color-danger-rgb: 220, 38, 38;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #c22222;
+  --ion-color-danger-tint: #e13d3d;
+
+  /* Page + surface neutrals */
+  --ion-background-color: #f5f6fa;
+  --ion-background-color-rgb: 245, 246, 250;
+  --ion-text-color: #111827;
+  --ion-text-color-rgb: 17, 24, 39;
+
+  --ion-toolbar-background: #ffffff;
+  --ion-item-background: #ffffff;
+
+  --ion-color-step-50: #f7f8fa;
+  --ion-color-step-100: #eef0f4;
+  --ion-color-step-150: #e5e7eb;
+  --ion-color-step-200: #dcdfe6;
+  --ion-color-step-500: #9199a8;
+  --ion-color-step-600: #6b7280;
+  --ion-color-step-850: #1f2430;
+
+  --ion-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* App-specific tokens used by component stylesheets — derived from the scales above so both stay in sync. */
+  --app-surface: #ffffff;
+  --app-border-color: var(--ion-color-step-150);
+  --app-radius-md: 10px;
+  --app-radius-lg: 14px;
+  --app-shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.04), 0 1px 3px rgba(17, 24, 39, 0.06);
+  --app-text-muted: var(--ion-color-step-600);
+  --app-text-heading: var(--ion-text-color);
+  --app-spacing-xs: 4px;
+  --app-spacing-sm: 8px;
+  --app-spacing-md: 16px;
+  --app-spacing-lg: 24px;
+  --app-spacing-xl: 32px;
+}
+
+/* Ionic buttons default to uppercase, heavy-shadow Material styling; flatten to a modern look. */
+ion-button {
+  --border-radius: 8px;
+  --box-shadow: none;
+  text-transform: none;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+ion-toolbar {
+  --border-color: var(--app-border-color);
+}

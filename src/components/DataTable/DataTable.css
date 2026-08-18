@@ -1,20 +1,110 @@
+.data-table-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.data-table-search {
+  --background: var(--ion-color-step-50);
+  --border-radius: 8px;
+  --box-shadow: none;
+  padding: 0;
+}
+
 .data-table-wrapper {
-  overflow-x: auto;
+  overflow: auto;
+  max-height: 420px;
+  border: 1px solid var(--app-border-color);
+  border-radius: 10px;
 }
 
 .data-table {
   width: 100%;
   border-collapse: collapse;
+  font-size: 0.9rem;
 }
 
 .data-table th,
 .data-table td {
-  padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid var(--ion-color-step-150, #d9d9d9);
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--app-border-color);
   text-align: left;
   white-space: nowrap;
 }
 
-.data-table thead {
-  background: var(--ion-color-step-50, #f2f2f2);
+.data-table th.is-numeric,
+.data-table td.is-numeric {
+  text-align: right;
+}
+
+.data-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--ion-color-step-50);
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--app-text-heading);
+  user-select: none;
+  z-index: 1;
+}
+
+.data-table thead th:hover {
+  background: var(--ion-color-step-100);
+}
+
+/*
+ * Keep the first column visible while scrolling wide tables horizontally on narrow screens.
+ * Each row state sets --row-bg once; the sticky cell just reads it, so a new row state never
+ * needs its own td:first-child override to stay in sync.
+ */
+.data-table th:first-child,
+.data-table td:first-child {
+  position: sticky;
+  left: 0;
+  box-shadow: 2px 0 4px -2px rgba(17, 24, 39, 0.12);
+}
+
+.data-table thead th:first-child {
+  z-index: 2;
+}
+
+.data-table tbody tr {
+  --row-bg: var(--app-surface);
+}
+
+.data-table tbody td:first-child {
+  z-index: 1;
+  background: var(--row-bg);
+}
+
+.data-table-th-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sort-icon {
+  font-size: 0.85rem;
+  color: var(--ion-color-step-500);
+}
+
+.sort-icon.is-active {
+  color: var(--ion-color-primary);
+}
+
+.data-table tbody tr:nth-child(even) {
+  --row-bg: var(--ion-color-step-50);
+  background: var(--row-bg);
+}
+
+.data-table tbody tr:hover {
+  --row-bg: var(--ion-color-step-100);
+  background: var(--row-bg);
+}
+
+.data-table-empty {
+  margin: 0;
+  padding: 8px 4px;
+  color: var(--app-text-muted);
+  font-size: 0.9rem;
 }

@@ -1,11 +1,49 @@
-month,region,units_sold,revenue
-January,North,120,3600
-January,South,95,2850
-February,North,140,4200
-February,South,110,3300
-March,North,160,4800
-March,South,130,3900
-April,North,175,5250
-April,South,150,4500
-May,North,190,5700
-May,South,165,4950
+month,region,product_category,units_sold,revenue,profit_margin
+January,North,Electronics,137,6302,17.2
+January,South,Apparel,103,2781,31.2
+January,East,Home Goods,121,4114,26.8
+January,West,Electronics,99,4554,18.8
+February,North,Apparel,126,3402,31.6
+February,South,Home Goods,102,3468,25.6
+February,East,Electronics,116,5336,17.2
+February,West,Apparel,99,2673,31.2
+March,North,Home Goods,140,4760,26
+March,South,Electronics,111,5106,18
+March,East,Apparel,132,3564,31.6
+March,West,Home Goods,101,3434,25.6
+April,North,Electronics,148,6808,18.4
+April,South,Apparel,122,3294,32.4
+April,East,Home Goods,142,4828,26
+April,West,Electronics,116,5336,18
+May,North,Apparel,163,4401,32.8
+May,South,Home Goods,131,4454,26.8
+May,East,Electronics,150,6900,18.4
+May,West,Apparel,117,3159,32.4
+June,North,Home Goods,171,5814,25.2
+June,South,Electronics,135,6210,17.2
+June,East,Apparel,147,3969,32.8
+June,West,Home Goods,123,4182,26.8
+July,North,Electronics,166,7636,17.6
+July,South,Apparel,125,3375,31.6
+July,East,Home Goods,145,4930,25.2
+July,West,Electronics,119,5474,17.2
+August,North,Apparel,162,4374,32
+August,South,Home Goods,120,4080,26
+August,East,Electronics,137,6302,17.6
+August,West,Apparel,117,3159,31.6
+September,North,Home Goods,162,5508,26.4
+September,South,Electronics,128,5888,18.4
+September,East,Apparel,153,4131,32
+September,West,Home Goods,127,4318,26
+October,North,Electronics,194,8924,18.8
+October,South,Apparel,146,3942,32.8
+October,East,Home Goods,171,5814,26.4
+October,West,Electronics,139,6394,18.4
+November,North,Apparel,218,5886,31.2
+November,South,Home Goods,176,5984,25.2
+November,East,Electronics,201,9246,18.8
+November,West,Apparel,171,4617,32.8
+December,North,Home Goods,247,8398,25.6
+December,South,Electronics,195,8970,17.6
+December,East,Apparel,232,6264,31.2
+December,West,Home Goods,177,6018,25.2

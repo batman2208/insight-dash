@@ -1,0 +1,17 @@
+.file-upload {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-spacing-sm);
+}
+
+.file-upload-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.file-upload-error p {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+}

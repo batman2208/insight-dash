@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import {
   IonButton,
-  IonCard,
-  IonCardContent,
+  IonIcon,
   IonInput,
   IonItem,
   IonLabel,
@@ -12,10 +11,12 @@ import {
   IonText,
   IonTextarea,
 } from '@ionic/react';
+import { sparklesOutline } from 'ionicons/icons';
 import { askClaude } from './claudeClient';
 import { buildDatasetSummary } from '../../utils/buildDatasetSummary';
 import type { ClaudeModel } from '../../types/ai';
 import type { Dataset } from '../../types/dataset';
+import './AskAboutData.css';
 
 export interface AskAboutDataProps {
   dataset: Dataset;
@@ -47,8 +48,11 @@ export function AskAboutData({ dataset }: AskAboutDataProps) {
   };
 
   return (
-    <div>
-      <IonItem>
+    <div className="ask-about-data">
+      <p className="ask-about-data-hint">
+        Your API key is used only for this request and is never stored or sent anywhere but Anthropic's API.
+      </p>
+      <IonItem className="ask-about-data-field" lines="none">
         <IonLabel position="stacked">Claude API key</IonLabel>
         <IonInput
           type="password"
@@ -58,34 +62,43 @@ export function AskAboutData({ dataset }: AskAboutDataProps) {
           data-testid="api-key-input"
         />
       </IonItem>
-      <IonItem>
+      <IonItem className="ask-about-data-field" lines="none">
         <IonLabel position="stacked">Model</IonLabel>
         <IonSelect value={model} onIonChange={(e) => setModel(e.detail.value)}>
           <IonSelectOption value="claude-sonnet-5">claude-sonnet-5</IonSelectOption>
           <IonSelectOption value="claude-haiku-4-5-20251001">claude-haiku-4-5</IonSelectOption>
         </IonSelect>
       </IonItem>
-      <IonItem>
+      <IonItem className="ask-about-data-field" lines="none">
         <IonLabel position="stacked">Question</IonLabel>
         <IonTextarea
           value={question}
           onIonInput={(e) => setQuestion(e.detail.value ?? '')}
           placeholder="What trend do you see in this data?"
           data-testid="question-input"
+          autoGrow
         />
       </IonItem>
-      <IonButton onClick={handleAsk} disabled={!canSubmit} data-testid="ask-button">
-        {isLoading ? <IonSpinner name="dots" /> : 'Ask'}
+      <IonButton onClick={handleAsk} disabled={!canSubmit} data-testid="ask-button" className="ask-about-data-submit">
+        {isLoading ? (
+          <IonSpinner name="dots" />
+        ) : (
+          <>
+            <IonIcon slot="start" icon={sparklesOutline} />
+            Ask
+          </>
+        )}
       </IonButton>
       {error && (
         <IonText color="danger">
-          <p>{error}</p>
+          <p className="ask-about-data-error">{error}</p>
         </IonText>
       )}
       {answer && (
-        <IonCard>
-          <IonCardContent>{answer}</IonCardContent>
-        </IonCard>
+        <div className="ask-about-data-answer">
+          <span className="ask-about-data-answer-label">Answer</span>
+          <p>{answer}</p>
+        </div>
       )}
     </div>
   );
